@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="website_sale_big_search">
+      <field name="name">Big Search Box in Website</field>
+      <field name="inherit_id" ref="portal.frontend_layout"/>
+      <field name="arch" type="xml">
+        <!--xpath expr="//header" position="after">
+          <div class="container mt-2 mb-2">
+            <form t-att-action="'/shop'" method="get" t-att-class="_classes">
+            <t t-if="attrib_values">
+                <t t-foreach="attrib_values" t-as="a">
+                    <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
+                </t>
+            </t>
+            <t t-call="website.website_search_box"/>
+            </form>
+          </div>
+		    </xpath-->
+
+        <xpath expr="//header" position="inside">
+          <div class="navbar navbar-expand-md navbar-light bg-light pt-2 pb-2">
+            <div class="container">
+              <form t-att-action="'/shop'" method="get" class="w-100">
+                <t t-if="attrib_values">
+                    <t t-foreach="attrib_values" t-as="a">
+                        <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
+                    </t>
+                </t>
+                <t t-call="website.website_search_box"/>
+              </form>
+            </div>
+          </div>
+		    </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
